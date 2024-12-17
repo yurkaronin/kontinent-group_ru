@@ -265,6 +265,8 @@ input[type="radio"].visually-hidden {
     font-size: 14px;
     line-height: 143%;
     color: #696d73;
+    margin-top: 5px;
+    transition: all 0.3s;
 
     a {
       text-decoration: underline;
@@ -289,5 +291,85 @@ input[type="radio"].visually-hidden {
 
   input:checked+&__emulator svg {
     opacity: 1;
+  }
+}
+
+
+.subscribe-block {
+  .checkbox__emulator {
+    background: #263344;
+    border: 1px solid #5d6673;
+  }
+
+  .checkbox__text {
+    color: #bdc1c7;
+
+    a {
+      color: #fff;
+    }
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+}
+
+.new-details {
+  &__content {
+    margin-top: 60px;
+
+    p {
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #babec4;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+    }
+
+    b {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    ul {
+      list-style: none;
+      color: #babec4;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+    }
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__lead {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    max-width: max-content;
+  }
+
+  @media only screen and (max-width: 960px) {
+    &__content {
+      margin-top: 30px;
+      .home-about-flex {
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .home-about-flex__right {
+        // order: -1;
+        margin-top: 0;
+      }
+    }
+
   }
 }
