@@ -1,0 +1,34 @@
+
+; /* Start:"a:4:{s:4:"full";s:128:"/local/templates/continent_custom/components/bitrix/system.pagenavigation/ajax_loadmore_without_counter/script.js?17238110021158";s:6:"source";s:113:"/local/templates/continent_custom/components/bitrix/system.pagenavigation/ajax_loadmore_without_counter/script.js";s:3:"min";s:0:"";s:3:"map";s:0:"";}"*/
+$(document).ready(function(){
+
+	$(document).on('click', '.js-news-loadmore', function(){
+
+		var targetContainer = $('.js-news-list'),          //  Контейнер, в котором хранятся элементы
+			url =  $(this).attr('data-url');    //  URL, из которого будем брать элементы
+
+		if (url !== undefined) {
+			$.ajax({
+				type: 'GET',
+				url: url,
+				dataType: 'html',
+				success: function(data){
+					//  Удаляем старую навигацию
+					$('.js-news-loadmore').remove();
+
+					var elements = $(data).find('.js-news-item').addClass('loadmore-item-temp-hidden'),  //  Ищем элементы
+						pagination = $(data).find('.js-news-loadmore');//  Ищем навигацию
+					elements.find('img').removeAttr('loading');
+					targetContainer.append(elements);   //  Добавляем посты в конец контейнера
+					setTimeout(function(){elements.removeClass('loadmore-item-temp-hidden');},300);
+					$('.js-news-loadmore-wrap').append(pagination); //  добавляем навигацию следом
+
+				}
+			})
+		}
+
+	});
+
+});
+/* End */
+;; /* /local/templates/continent_custom/components/bitrix/system.pagenavigation/ajax_loadmore_without_counter/script.js?17238110021158*/
