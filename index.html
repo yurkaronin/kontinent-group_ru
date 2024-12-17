@@ -16713,9 +16713,29 @@
                     <button type="submit" class="btn btn--w100"><span>Заказать звонок</span></button>
                   </div>
                 </div>
-                <div class="simple-modal__privacy">Нажимая на кнопку, вы принимаете <a
+                <!-- Изменённая разметка  -->
+                <label class="checkbox" for="form_checkbox_1">
+                  <input class="visually-hidden" type="checkbox" name="form_checkbox_1" id="form_checkbox_1">
+                  <span class="checkbox__emulator">
+                    <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 5L6 9L13 1" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                  <span class="checkbox__text">Нажимая на кнопку, вы принимаете <a
                     href="https://kontinent-group.ru/privacy/" target="_blank">политику конфиденциальности</a> и даете
-                  согласие на обработку персональных данных </div>
+                  согласие на обработку персональных данных</span>
+                </label>
+
+                <label class="checkbox" for="form_checkbox_2">
+                  <input class="visually-hidden" type="checkbox" name="form_checkbox_1" id="form_checkbox_2">
+                  <span class="checkbox__emulator">
+                    <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 5L6 9L13 1" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                  <span class="checkbox__text">Я даю свое согласие на получение информации рекламного характера</span>
+                </label>
+
 
                 <div class="error-msg"></div>
               </form>
