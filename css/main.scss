@@ -20,7 +20,6 @@ input[type="radio"].visually-hidden {
   clip-path: inset(100%);
 }
 
-
 // ДЕСКТОП МЕНЮ
 .sh-menu-item--has-sub-nav {
   position: relative;
@@ -111,7 +110,6 @@ input[type="radio"].visually-hidden {
         right: 0;
       }
     }
-
   }
 
   &__icon {
@@ -132,7 +130,6 @@ input[type="radio"].visually-hidden {
     position: relative;
   }
 }
-
 
 // МОБИЛЬНОЕ МЕНЮ
 .mob-menu {
@@ -156,7 +153,6 @@ input[type="radio"].visually-hidden {
       height: auto;
     }
   }
-
 }
 
 .mob-sub-menu {
@@ -275,7 +271,7 @@ input[type="radio"].visually-hidden {
     }
   }
 
-  &+& {
+  & + & {
     margin-top: 11px;
   }
 
@@ -283,17 +279,25 @@ input[type="radio"].visually-hidden {
     margin: 0;
   }
 
-  input:checked+&__emulator {
+  input:checked + &__emulator {
     background: #53667f;
     border: 1px solid #53667f;
-
   }
 
-  input:checked+&__emulator svg {
+  input:checked + &__emulator svg {
     opacity: 1;
   }
-}
 
+  @media (max-width: 767px) {
+    gap: 8px;
+    margin-top: 20px;
+
+    &__text {
+      font-size: 12px;
+      line-height: 1.2;
+    }
+  }
+}
 
 .subscribe-block {
   .checkbox__emulator {
@@ -312,7 +316,6 @@ input[type="radio"].visually-hidden {
       color: rgba(255, 255, 255, 0.7);
     }
   }
-
 }
 
 .new-details {
@@ -370,6 +373,24 @@ input[type="radio"].visually-hidden {
         margin-top: 0;
       }
     }
+  }
+}
 
+.home-about-card {
+  &__desc {
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    color: #fff;
+    max-width: 100%;
+    width: 100%;
+
+    &--mod {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #babec4;
+    }
   }
 }
