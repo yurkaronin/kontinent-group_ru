@@ -372,4 +372,30 @@ input:checked + .checkbox__emulator svg {
   font-size: 16px;
   line-height: 150%;
   color: #babec4;
+}
+
+.impobj-map-wrap--mob .impobj-map-object:hover .impobj-map-object__pic svg path {
+  fill: #ffffff;
+}
+
+.impobj-map-object--mod {
+  width: 95px;
+  height: 95px;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  pointer-events: none;
+}
+.impobj-map-object--mod .impobj-map-object__pic {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.impobj-map-object--mod .impobj-map-object__pic svg {
+  width: 100%;
+  height: auto;
 }/*# sourceMappingURL=main.css.map */
