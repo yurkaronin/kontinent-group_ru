@@ -1,0 +1,65 @@
+
+; /* Start:"a:4:{s:4:"full";s:107:"/local/templates/continent_custom/components/bitrix/form.result.new/subscribe_form/script.js?17289891271910";s:6:"source";s:92:"/local/templates/continent_custom/components/bitrix/form.result.new/subscribe_form/script.js";s:3:"min";s:0:"";s:3:"map";s:0:"";}"*/
+function ajaxFormSubscribe(obForm, link) {
+	$(obForm).on('submit',function(e) {
+		e.preventDefault();
+
+		$(obForm).find('button[type="submit"]').prop('disabled', true);
+
+		var valid = true;
+		var form = $(obForm);
+
+		form.find('.js-webform-field-subject').val(window.subscribeFormInfo.subject);
+		form.find('.js-webform-field-source').val(document.location.href);
+
+		var inputs = form.find('.js-need-validate');
+		inputs.each(function () {
+			$this = $(this);
+			if (!validateField($this)) {
+				valid = false;
+				$(obForm).find('button[type="submit"]').prop('disabled', false);
+			}
+		});
+
+		if (valid) {
+			obForm.getElementsByClassName('error-msg')[0].innerHTML = '';
+
+
+			$.ajax({
+				url: link,
+				method: 'POST',
+				dataType: 'json',
+				processData: false, // Сообщить jQuery не передавать эти данные
+				contentType: false, // Сообщить jQuery не передавать тип контента
+				data: new FormData(obForm),
+				success: function (data) {
+					if (!data.success) {
+						let errorStr = '';
+						for (let fieldKey in data.errors) {
+							errorStr += data.errors[fieldKey] + '<br>';
+						}
+
+						// Ошибки вывести в элемент с классом error-msg
+						obForm.getElementsByClassName('error-msg')[0].innerHTML = errorStr;
+					} else {
+						obForm.reset();
+						// Показываем сообщение об успешной отправке
+						popupSuccess();
+					}
+					$(obForm).find('button[type="submit"]').prop('disabled', false);
+				},
+				error: function (jqXHR, exception) {
+					if (jqXHR.status !== 200) {
+						alert(`Ошибка ${jqXHR.status}: ${jqXHR.statusText}`);
+					}
+					else {
+						alert("Запрос не удался");
+					}
+					$(obForm).find('button[type="submit"]').prop('disabled', false);
+				}
+			});
+		}
+	});
+}
+/* End */
+;; /* /local/templates/continent_custom/components/bitrix/form.result.new/subscribe_form/script.js?17289891271910*/
